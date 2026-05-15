@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIOS — Johan FL / Lumiquiver</title>
+  <meta name="description" content="LUMIOS is a cinematic futuristic portfolio operating system." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="boot-overlay" id="bootOverlay" aria-hidden="false">
+    <div class="boot-scanlines"></div>
+    <div class="boot-vignette"></div>
+    <div class="boot-shell">
+      <div class="boot-mark">
+        <img src="assets/logo.svg" alt="LUMIOS" />
+      </div>
+      <div class="boot-copy">
+        <div class="boot-title">LUMIOS / NEURAL CIVILIZATION INTERFACE</div>
+        <div class="boot-sub">Forged in Kali Linux • Tempered in Sanskrit</div>
+      </div>
+      <div class="boot-logs" id="bootLogs" aria-live="polite"></div>
+      <div class="boot-actions">
+        <button id="bootEnter" class="btn btn-primary">INITIALIZE CIVILIZATION</button>
+      </div>
+      <div class="boot-meta">Machines • Intellect • Victory</div>
+    </div>
+  </div>
+
+  <div class="app" id="app" aria-hidden="true">
+    <canvas id="fxCanvas" class="fx-canvas"></canvas>
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <img src="assets/favicon.svg" class="mini-mark" alt="" />
+        <div>
+          <div class="brand">LUMIOS</div>
+          <div class="brand-sub">Johan FL — Lumiquiver / लुमिQuiver</div>
+        </div>
+      </div>
+      <div class="topbar-center">
+        <div class="status-pill" id="worldName">DARK CYBERPUNK DISTRICT</div>
+        <div class="status-pill ghost" id="systemStatus">systems online</div>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" id="audioToggle" title="Mute / Unmute">AUDIO ON</button>
+        <div class="clock" id="clock">00:00:00</div>
+      </div>
+    </header>
+
+    <aside class="dock">
+      <button class="dock-item active" data-world="0">01</button>
+      <button class="dock-item" data-world="1">02</button>
+      <button class="dock-item" data-world="2">03</button>
+      <button class="dock-item" data-world="3">04</button>
+      <button class="dock-item" data-world="4">05</button>
+    </aside>
+
+    <main class="viewport" id="viewport">
+      <div class="camera" id="camera">
+        <section class="world world-cyberpunk active" data-world="0">
+          <div class="skyline skyline-left"></div>
+          <div class="skyline skyline-right"></div>
+          <div class="rain"></div>
+          <div class="fog fog-a"></div>
+          <div class="fog fog-b"></div>
+          <div class="world-label">
+            <span>DARK CYBERPUNK DISTRICT</span>
+            <strong>AI infrastructure / cybersecurity / DeerCard</strong>
+          </div>
+
+          <div class="project-gate large" style="--x:14%; --y:58%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">PROJECT</div>
+              <h3>DeerCard</h3>
+              <p>Identity architecture inside a neon security district.</p>
+            </div>
+          </div>
+          <div class="project-gate" style="--x:52%; --y:40%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">SYSTEM</div>
+              <h3>Cybersecurity Systems</h3>
+              <p>Hardened nodes, threat telemetry, adaptive perimeter logic.</p>
+            </div>
+          </div>
+          <div class="project-gate" style="--x:73%; --y:67%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">LAB</div>
+              <h3>AI Infrastructure</h3>
+              <p>Inference corridors, model routing, synthetic observability.</p>
+            </div>
+          </div>
+          <div class="project-gate" style="--x:83%; --y:22%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">EXP</div>
+              <h3>Hacking Experiments</h3>
+              <p>Controlled chaos in a supervised simulation.</p>
+            </div>
+          </div>
+
+          <div class="bot-field">
+            <div class="scriptbot bot-archivist" data-bot="archivist" style="left:18%; top:18%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Archivist Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+            <div class="scriptbot bot-humorous" data-bot="humorous" style="left:84%; top:29%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Humorous Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="world world-void" data-world="1">
+          <div class="void-architecture"></div>
+          <div class="void-light"></div>
+          <div class="world-label light">
+            <span>MINIMAL WHITE VOID</span>
+            <strong>identity / philosophy / presentation</strong>
+          </div>
+
+          <div class="identity-panel glass-panel">
+            <div class="panel-kicker">SYSTEM PROFILE</div>
+            <h2>Johan FL</h2>
+            <p class="accent">Alias: Lumiquiver · Codename: लुमिQuiver</p>
+            <p>ENTP builder. Systems thinker. Controlled chaos. Building systems beyond convention.</p>
+            <div class="philosophy-grid">
+              <div><span>Mindset</span><strong>Builder</strong></div>
+              <div><span>Domain</span><strong>AI / Cybersecurity</strong></div>
+              <div><span>Mission</span><strong>Turn imagination into infrastructure</strong></div>
+            </div>
+          </div>
+
+          <div class="project-gate white" style="--x:62%; --y:58%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">PHILOSOPHY</div>
+              <h3>Machines • Intellect • Victory</h3>
+              <p>Ancient philosophy fused with futuristic computing civilization.</p>
+            </div>
+          </div>
+          <div class="project-gate white" style="--x:26%; --y:32%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">OBJECTIVE</div>
+              <h3>System Identity</h3>
+              <p>Operating as an evolving research civilization.</p>
+            </div>
+          </div>
+          <div class="bot-field">
+            <div class="scriptbot bot-analytical" data-bot="analytical" style="left:72%; top:21%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Analytical Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="world world-archive" data-world="2">
+          <div class="crt-curtain"></div>
+          <div class="archive-grid"></div>
+          <div class="archive-monitors">
+            <div class="monitor"><span>ARCHIVE /// 1999-2049</span><strong>retro systems / coding evolution</strong></div>
+            <div class="monitor"><span>VHS DISTORTION</span><strong>experiments / legacy interfaces</strong></div>
+            <div class="monitor"><span>FLOPPY NODE</span><strong>old OS / pixel memory / terminals</strong></div>
+          </div>
+          <div class="world-label retro">
+            <span>RETRO ARCHIVE</span>
+            <strong>coding history / experimental systems / archived projects</strong>
+          </div>
+
+          <div class="project-gate retro" style="--x:20%; --y:66%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">HISTORY</div>
+              <h3>Coding Evolution</h3>
+              <p>From terminal roots to experimental interfaces.</p>
+            </div>
+          </div>
+          <div class="project-gate retro" style="--x:60%; --y:38%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">ARCHIVE</div>
+              <h3>Archived Projects</h3>
+              <p>Recovered fragments of prototypes and old systems.</p>
+            </div>
+          </div>
+          <div class="bot-field">
+            <div class="scriptbot bot-corrupted" data-bot="corrupted" style="left:80%; top:65%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Corrupted Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="world world-lab" data-world="3">
+          <div class="lab-beam"></div>
+          <div class="lab-grid"></div>
+          <div class="lab-orbit orbit-a"></div>
+          <div class="lab-orbit orbit-b"></div>
+          <div class="world-label lab">
+            <span>RESEARCH LAB</span>
+            <strong>flagship futuristic projects / active simulations</strong>
+          </div>
+
+          <div class="project-gate lab" style="--x:17%; --y:32%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">FLAGSHIP</div>
+              <h3>Quadinary Computing Ecosystem</h3>
+              <p>Experimental computation architecture in a living research lattice.</p>
+            </div>
+          </div>
+          <div class="project-gate lab" style="--x:55%; --y:62%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">AI</div>
+              <h3>Advanced AI Systems</h3>
+              <p>Modular intelligence, memory routing, adaptive operations.</p>
+            </div>
+          </div>
+          <div class="project-gate lab" style="--x:82%; --y:28%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">INFRA</div>
+              <h3>Experimental Computing</h3>
+              <p>Future-facing infrastructure and unusual logic loops.</p>
+            </div>
+          </div>
+          <div class="bot-field">
+            <div class="scriptbot bot-assistant" data-bot="assistant" style="left:28%; top:74%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Assistant Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="world world-memory" data-world="4">
+          <div class="memory-fog"></div>
+          <div class="memory-ruins"></div>
+          <div class="memory-shards"></div>
+          <div class="world-label memory">
+            <span>LOST MEMORY SPACE</span>
+            <strong>unfinished ideas / emotional storytelling / dream-state ruins</strong>
+          </div>
+
+          <div class="memory-note glass-panel">
+            <div class="panel-kicker">FRAGMENT</div>
+            <h2>Unfinished ideas</h2>
+            <p>Abandoned structures still carry signal. Corrupted holograms preserve intent.</p>
+          </div>
+          <div class="project-gate memory" style="--x:68%; --y:28%;">
+            <div class="gate-core"></div>
+            <div class="gate-content">
+              <div class="gate-tag">DREAM</div>
+              <h3>Emotional Ambience</h3>
+              <p>Fragments of ambition held in atmospheric stillness.</p>
+            </div>
+          </div>
+          <div class="bot-field">
+            <div class="scriptbot bot-archivist" data-bot="archivist" style="left:72%; top:72%;">
+              <div class="bot-head"></div>
+              <div class="bot-name">Archivist Bot</div>
+              <div class="bot-speech"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <section class="hud">
+      <div class="hud-column left">
+        <div class="glass-panel terminal-window draggable" data-window="profile">
+          <div class="window-bar">
+            <span>NEURAL PROFILE</span>
+            <div class="window-controls">
+              <button class="window-btn minimize">—</button>
+              <button class="window-btn close">×</button>
+            </div>
+          </div>
+          <div class="terminal-content">
+            <div class="terminal-line"><span class="prompt">root@lumios</span> <span class="cmd">whoami</span></div>
+            <div class="terminal-line output">Johan FL // Lumiquiver // लुमिQuiver</div>
+            <div class="terminal-line output">ENTP · Builder · Systems Thinker · Controlled Chaos</div>
+            <div class="terminal-line output">Domains: AI / Cybersecurity / Automation / Full Stack / Experimental Computing</div>
+          </div>
+        </div>
+
+        <div class="glass-panel terminal-window draggable" data-window="processes">
+          <div class="window-bar">
+            <span>FAKE SYSTEM PROCESSES</span>
+            <div class="window-controls">
+              <button class="window-btn minimize">—</button>
+              <button class="window-btn close">×</button>
+            </div>
+          </div>
+          <div class="process-list" id="processList"></div>
+        </div>
+      </div>
+
+      <div class="hud-column center">
+        <div class="glass-panel centerpiece draggable" data-window="centerpiece">
+          <div class="window-bar">
+            <span>COMMAND CENTER</span>
+            <div class="window-controls">
+              <button class="window-btn minimize">—</button>
+              <button class="window-btn close">×</button>
+            </div>
+          </div>
+          <div class="centerpiece-inner">
+            <div class="centerpiece-title">LUMIOS / OPERATING SYSTEM</div>
+            <div class="centerpiece-phrase">initializing civilization…</div>
+            <div class="centerpiece-grid">
+              <div class="metric-card">
+                <span>Neural Load</span><strong id="metricA">84%</strong>
+              </div>
+              <div class="metric-card">
+                <span>Fog Density</span><strong id="metricB">71%</strong>
+              </div>
+              <div class="metric-card">
+                <span>World Pulse</span><strong id="metricC">05</strong>
+              </div>
+              <div class="metric-card">
+                <span>Signal Integrity</span><strong id="metricD">99.8%</strong>
+              </div>
+            </div>
+            <div class="centerpiece-actions">
+              <button class="btn" data-jump="0">Cyber District</button>
+              <button class="btn" data-jump="3">Research Lab</button>
+              <button class="btn" id="enterFocus">Enter Deep Focus</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel project-hall">
+          <div class="panel-kicker">PROJECT GATEWAYS</div>
+          <div class="project-orbit">
+            <div class="artifact">
+              <div class="artifact-core"></div>
+              <div>
+                <h3>DeerCard</h3>
+                <p>Identity + systems presentation</p>
+              </div>
+            </div>
+            <div class="artifact">
+              <div class="artifact-core"></div>
+              <div>
+                <h3>Roasty</h3>
+                <p>Automation with personality</p>
+              </div>
+            </div>
+            <div class="artifact">
+              <div class="artifact-core"></div>
+              <div>
+                <h3>Quadinary Computing Ecosystem</h3>
+                <p>Futuristic computational lattice</p>
+              </div>
+            </div>
+            <div class="artifact">
+              <div class="artifact-core"></div>
+              <div>
+                <h3>StudySphere RAG</h3>
+                <p>Research-driven knowledge engine</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-column right">
+        <div class="glass-panel draggable" data-window="lore">
+          <div class="window-bar">
+            <span>NEURAL LORE</span>
+            <div class="window-controls">
+              <button class="window-btn minimize">—</button>
+              <button class="window-btn close">×</button>
+            </div>
+          </div>
+          <div class="lore-list">
+            <div class="lore-item">Building systems beyond convention</div>
+            <div class="lore-item">Turn imagination into infrastructure</div>
+            <div class="lore-item">AI modules loaded</div>
+            <div class="lore-item">systems online</div>
+            <div class="lore-item">Controlled Chaos</div>
+          </div>
+        </div>
+
+        <div class="glass-panel draggable" data-window="navigator">
+          <div class="window-bar">
+            <span>DIMENSIONAL NAVIGATION</span>
+            <div class="window-controls">
+              <button class="window-btn minimize">—</button>
+              <button class="window-btn close">×</button>
+            </div>
+          </div>
+          <div class="nav-grid">
+            <button class="nav-card active" data-world="0">Dark Cyberpunk District</button>
+            <button class="nav-card" data-world="1">Minimal White Void</button>
+            <button class="nav-card" data-world="2">Retro Archive</button>
+            <button class="nav-card" data-world="3">Research Lab</button>
+            <button class="nav-card" data-world="4">Lost Memory Space</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="taskbar">
+      <div class="taskbar-left">
+        <span class="task-pill">LUMIOS</span>
+        <span class="task-pill">लुमिQuiver</span>
+        <span class="task-pill" id="taskPhrase">Machines • Intellect • Victory</span>
+      </div>
+      <div class="taskbar-right">
+        <span class="task-pill" id="fpsReadout">NEURAL FPS 60</span>
+        <span class="task-pill">Ambient: Cyberpunk / Lab / Retro</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
